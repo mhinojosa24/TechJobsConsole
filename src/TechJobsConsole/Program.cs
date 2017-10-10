@@ -104,6 +104,7 @@ namespace TechJobsConsole
 
                 if (choiceIdx < 0 || choiceIdx >= choiceKeys.Length)
                 {
+
                     Console.WriteLine("Invalid choices. Try again.");
                 }
                 else
@@ -118,7 +119,18 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("printJobs is not implemented yet");
+            foreach(Dictionary<string,string> job1 in someJobs)// into the list
+            {
+                String jobInfo = "\n****\n";
+
+                foreach(string key in job1.Keys)
+                {
+                    jobInfo += (key + ":" + job1[key]);
+                }
+                jobInfo += "*****";
+                Console.WriteLine(jobInfo);
+            }
         }
-    }
+    }   
 }
+    
