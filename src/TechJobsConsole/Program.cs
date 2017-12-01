@@ -100,6 +100,7 @@ namespace TechJobsConsole
                 }
 
                 string input = Console.ReadLine();
+
                 choiceIdx = int.Parse(input);
 
                 if (choiceIdx < 0 || choiceIdx >= choiceKeys.Length)
@@ -116,21 +117,45 @@ namespace TechJobsConsole
 
             return choiceKeys[choiceIdx];
         }
-
+        
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            foreach(Dictionary<string,string> job1 in someJobs)// into the list
+            if (someJobs.Count != 0)
             {
-                String jobInfo = "\n****\n";
-
-                foreach(string key in job1.Keys)
+                foreach(Dictionary<string, string> dict in someJobs)
                 {
-                    jobInfo += (key + ":" + job1[key]);
+                    Console.WriteLine("*****");
+                    foreach(KeyValuePair<string, string> item in dict)
+                    {
+                        Console.WriteLine("{0}: {1}", item.Key, item.Value);
+                    }
+                    Console.WriteLine("*****");
                 }
-                jobInfo += "*****";
-                Console.WriteLine(jobInfo);
             }
+            //foreach(Dictionary<string,string> job1 in someJobs)// into the list
+            //{
+            //    int i = 0;
+            //    Console.WriteLine("*****");
+
+
+
+            //    foreach (Dictionary<string, string> jobs in someJobs)
+            //    {
+            //        foreach (KeyValuePair<string, string> kvp in jobs)
+            //        {
+            //            Console.WriteLine(kvp.Key + ": " + kvp.Value);
+            //            i++;
+            //        }
+            //        if(i % 5 == 0)
+            //        {
+            //            Console.WriteLine("*****");
+            //            Console.WriteLine("     ");
+
+            //        }
+            //    }
+            
         }
     }   
 }
+
     
